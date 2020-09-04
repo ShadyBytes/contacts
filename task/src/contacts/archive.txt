@@ -1,0 +1,145 @@
+/*package contacts;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String action;
+        ArrayList<Person> persons = new ArrayList<>();
+
+
+        do {
+            System.out.println("Enter action (add, remove, edit, count, list, exit): ");
+            action = scanner.next();
+            if (action.equals("add")) {
+                System.out.println("Enter the name: ");
+                String name = scanner.next();
+                System.out.println("Enter the surname: ");
+                String surname = scanner.next();
+                System.out.println("Enter the number: ");
+                String number = scanner.next();
+                Person person = new Person(name, surname);
+                person.setNumber(number);
+                System.out.println("The record added.");
+                persons.add(person);
+            } else if (action.equals("remove")) {
+                if (persons.size() == 0) {
+                    System.out.println("No records to remove!");
+                } else {
+                    Person.listAllPersons(persons);
+                    System.out.println("Select a record: ");
+                    int recordToRemove = scanner.nextInt();
+                    persons.remove(recordToRemove - 1);
+                    System.out.println("The record removed!");
+                }
+            } else if (action.equals("edit")) {
+                if (persons.size() > 0) {
+                    Person.listAllPersons(persons);
+                    System.out.println("Select a record: ");
+                    int recordToEdit = scanner.nextInt();
+
+                    System.out.println("Select a field (name, surname, number): ");
+                    String selectedFieldToEdit = scanner.next();
+                    if (selectedFieldToEdit.equals("name")) {
+                        System.out.println("Enter name: ");
+                        String editedName = scanner.next();
+                        persons.get(recordToEdit - 1).setName(editedName);
+                    } else if (selectedFieldToEdit.equals("surname")) {
+                        System.out.println("Enter surname: ");
+                        String editedSurname = scanner.next();
+                        persons.get(recordToEdit - 1).setSurname(editedSurname);
+                    } else if (selectedFieldToEdit.equals("number")) {
+                        System.out.println("Enter number: ");
+                        String editedNumber = scanner.next();
+                        persons.get(recordToEdit - 1).setNumber(editedNumber);
+                    }
+                } else {
+                    System.out.println("No records to edit!");
+                }
+            } else if (action.equals("count")) {
+                System.out.println("The Phone Book has " + persons.size() + " records.");
+            } else if (action.equals("list")) {
+
+                Person.listAllPersons(persons);
+            }
+        }
+        while (!action.equals("exit"));
+
+    }
+}
+
+class Person {
+    String name;
+    String surname;
+    String number = "";
+
+    public Person(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public static void listAllPersons(ArrayList<Person> persons) {
+        for (int i = 0; i < persons.size(); i++) {
+            if (persons.get(i).hasNumber()) {
+                System.out.println(String.format("%d. %s %s, %s",
+                        i + 1, persons.get(i).name, persons.get(i).surname, persons.get(i).number));
+            } else {
+                System.out.println(String.format("%d. %s %s, [no number]",
+                        i + 1, persons.get(i).name, persons.get(i).surname));
+            }
+        }
+    }
+
+    private static boolean isValidNumber(String number) {
+        boolean isValid = false;
+        Pattern pattern = Pattern.compile("(^\\+?[a-z\\d]+|^\\+?\\(\\+?[a-z\\d]+\\)|^\\+?[a-z\\d]+[- ]\\([a-z\\d]{2,}\\)|\\([a-z\\d]{2,}\\))([- ][a-z\\d]{2,})*$|^[a-z\\d]{2,}([- ][a-z\\d]{2,})+$|^[a-z\\d]{2,}$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(number);
+
+        if (matcher.matches()) {
+            isValid = true;
+            System.out.println("MAEUWFBUWEFBUWEBFUE");
+        } else {
+            System.out.println("Wrong number format!");
+        }
+        return isValid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        if (Person.isValidNumber(number)) {
+            this.number = number;
+        }
+    }
+
+    public boolean hasNumber() {
+        if (this.number != "") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+}*/
